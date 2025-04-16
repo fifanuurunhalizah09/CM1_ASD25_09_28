@@ -31,9 +31,10 @@ public class MainBank {
             System.out.println("BANK MENU:");
             System.out.println("1. Data Norek");
             System.out.println("2. Data Transaksi");
-            System.out.println("3. Search Data");
-            System.out.println("4. Sort Data");
-            System.out.println("5. Exit");
+            System.out.println("3. Search Data Berdasarkan No Hp");
+            System.out.println("4. Display Max Final Saldo");
+            System.out.println("5. Sort Data Final Saldo (ASC)");
+            System.out.println("6. Exit");
             System.out.print("Chose Menu(1-5): ");
             pilihan = sc.nextInt(); sc.nextLine();
 
@@ -49,13 +50,22 @@ public class MainBank {
                 case 3:
                     System.out.print("Masukkan No HP yang dicari: ");
                     String noHp = sc.nextLine();
+                    service.cariBerdasarkanNoHp();
                     break;
                 case 4:
                     System.out.println("Data sebelum disortir:");
-                   
                     System.out.println("Data setelah disortir berdasarkan Debit/Kredit ASC:");
+                    service.tampilkanFinalSaldoTerbesar();
+                    break;
+                case 5:
+                    System.out.println("== Data Transaksi Sebelum Disorting ==");
+                    service.tampilkanDataTransaksi();
+            
+                    System.out.println("\n== Sorting transaksi berdasarkan Final Saldo (ASC) karena bank mau tutup ==");
+                    service.sortByFinalSaldoAsc();
+                    service.tampilkanDataTransaksi();
                     break;
             }
-        } while (pilihan != 5);
+        } while (pilihan != 6);
     }
 }
