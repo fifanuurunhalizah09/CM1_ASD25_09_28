@@ -1,4 +1,6 @@
+
 public class ServiceTransaksi {
+
     Transaksi[] daftarTransaksi;
     int jumlahData;
 
@@ -18,43 +20,42 @@ public class ServiceTransaksi {
 
     public void tampilkanDataBankSaja() {
         System.out.printf("%-15s %-10s %-15s %-20s %-25s\n",
-            "No Rekening", "Nama", "Nama Ibu", "No HP", "Email");
+                "No Rekening", "Nama", "Nama Ibu", "No HP", "Email");
         for (int i = 0; i < jumlahData; i++) {
             Bank bank = daftarTransaksi[i].bankAcc;
             System.out.printf("%-15s %-10s %-15s %-20s %-25s\n",
-                bank.noRekening, bank.nama, bank.namaIbu, bank.noHp, bank.email);
+                    bank.noRekening, bank.nama, bank.namaIbu, bank.noHp, bank.email);
         }
     }
 
     public void tampilkanDataTransaksi() {
         System.out.printf("%-10s %-15s %-10s %-15s %-15s %-18s %-10s\n",
-            "Kode", "No Rekening", "Saldo", "Debit/Kredit", "Final Saldo", "Tanggal Transaksi", "Type");
+                "Kode", "No Rekening", "Saldo", "Debit/Kredit", "Final Saldo", "Tanggal Transaksi", "Type");
         for (int i = 0; i < jumlahData; i++) {
             Transaksi transaksi = daftarTransaksi[i];
-            System.out.printf("%-10s %-15s %-10.1f %-15.1f %-15.1f %-18s %-10s\n",
-                transaksi.kodeTransaksi,
-                transaksi.bankAcc.noRekening,
-                transaksi.saldo,
-                transaksi.inOutSaldo,
-                transaksi.finalSaldo,
-                transaksi.tanggalTransaksi,
-                transaksi.type);
+            System.out.printf("%-10s", transaksi.kodeTransaksi);
+            System.out.printf("%-15s", transaksi.bankAcc.noRekening);
+            System.out.printf("%-10.1f", transaksi.saldo);
+            System.out.printf("%-15.1f", transaksi.inOutSaldo);
+            System.out.printf("%-15.1f", transaksi.finalSaldo);
+            System.out.printf("%-18s", transaksi.tanggalTransaksi);
+            System.out.printf("%-10s\n", transaksi.type);
         }
     }
+
     public void cariBerdasarkanNoHp(String noHpDicari) {
         boolean ditemukan = false;
         for (int i = 0; i < jumlahData; i++) {
             if (daftarTransaksi[i].bankAcc.noHp.equals(noHpDicari)) {
                 System.out.println("Data ditemukan:");
                 Transaksi transaksi = daftarTransaksi[i];
-                System.out.printf("%-10s %-15s %-10.1f %-15.1f %-15.1f %-18s %-10s\n",
-                    transaksi.kodeTransaksi,
-                    transaksi.bankAcc.noRekening,
-                    transaksi.saldo,
-                    transaksi.inOutSaldo,
-                    transaksi.finalSaldo,
-                    transaksi.tanggalTransaksi,
-                    transaksi.type);
+                System.out.printf("%-10s", transaksi.kodeTransaksi);
+                System.out.printf("%-15s", transaksi.bankAcc.noRekening);
+                System.out.printf("%-10.1f", transaksi.saldo);
+                System.out.printf("%-15.1f", transaksi.inOutSaldo);
+                System.out.printf("%-15.1f", transaksi.finalSaldo);
+                System.out.printf("%-18s", transaksi.tanggalTransaksi);
+                System.out.printf("%-10s\n", transaksi.type);
                 ditemukan = true;
             }
         }
@@ -62,6 +63,7 @@ public class ServiceTransaksi {
             System.out.println("Data tidak ditemukan untuk No HP: " + noHpDicari);
         }
     }
+
     public void tampilkanFinalSaldoTerbesar() {
         if (jumlahData == 0) {
             System.out.println("Belum ada transaksi.");
@@ -87,6 +89,7 @@ public class ServiceTransaksi {
         System.out.println("Tanggal Transaksi  : " + transaksiTerbesar.tanggalTransaksi);
         System.out.println("Tipe Transaksi     : " + transaksiTerbesar.type);
     }
+
     public void sortByFinalSaldoAsc() {
         for (int i = 0; i < jumlahData - 1; i++) {
             for (int j = 0; j < jumlahData - i - 1; j++) {

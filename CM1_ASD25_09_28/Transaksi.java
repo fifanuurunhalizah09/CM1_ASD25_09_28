@@ -24,6 +24,6 @@ public class Transaksi {
         System.out.println("Final Saldo           :" + finalSaldo);
         System.out.println("Tanggal Transaksi     :" + tanggalTransaksi);
         System.out.println("Type                  :" + type);
-            System.out.println("Bank Account      : " + bankAcc);
+        System.out.println("Bank Account      : " + bankAcc);
         }
     }

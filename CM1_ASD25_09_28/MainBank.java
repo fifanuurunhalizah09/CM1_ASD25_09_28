@@ -50,7 +50,7 @@ public class MainBank {
                 case 3:
                     System.out.print("Masukkan No HP yang dicari: ");
                     String noHp = sc.nextLine();
-                    service.cariBerdasarkanNoHp();
+                    service.cariBerdasarkanNoHp(noHp);
                     break;
                 case 4:
                     System.out.println("Data sebelum disortir:");
