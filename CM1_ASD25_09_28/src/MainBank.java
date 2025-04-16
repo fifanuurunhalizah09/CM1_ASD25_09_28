@@ -15,8 +15,8 @@ public class MainBank {
             new Transaksi("TR005", 500000, 200000, 700000, "2025-04-01", "Credit", b1),
             new Transaksi("TR004", 700000, 100000, 600000, "2025-04-02", "Debit", b2),
             new Transaksi("TR003", 300000, 150000, 450000, "2025-04-03", "Credit", b3),
-            new Transaksi("TR002", 1000000, 300000, 1300000, "2025-04-04", "Credit", b1),
-            new Transaksi("TR001", 200000, 50000, 250000, "2025-04-05", "Credit", b2)
+            new Transaksi("TR002", 1000000, 300000, 1300000, "2025-04-04", "Credit", b4),
+            new Transaksi("TR001", 200000, 50000, 250000, "2025-04-05", "Credit", b5)
         };
 
         
@@ -35,12 +35,11 @@ public class MainBank {
             System.out.println("4. Display Max Final Saldo");
             System.out.println("5. Sort Data Final Saldo (ASC)");
             System.out.println("6. Exit");
-            System.out.print("Chose Menu(1-5): ");
+            System.out.print("Chose Menu(1-6): ");
             pilihan = sc.nextInt(); sc.nextLine();
 
             switch (pilihan) {
                 case 1:
-                    System.out.println("== Data Norek ==");
                     service.tampilkanDataBankSaja();
                     break;
                 case 2:
@@ -53,15 +52,10 @@ public class MainBank {
                     service.cariBerdasarkanNoHp(noHp);
                     break;
                 case 4:
-                    System.out.println("Data sebelum disortir:");
                     System.out.println("Data setelah disortir berdasarkan Debit/Kredit ASC:");
                     service.tampilkanFinalSaldoTerbesar();
                     break;
                 case 5:
-                    System.out.println("== Data Transaksi Sebelum Disorting ==");
-                    service.tampilkanDataTransaksi();
-            
-                    System.out.println("\n== Sorting transaksi berdasarkan Final Saldo (ASC) karena bank mau tutup ==");
                     service.sortByFinalSaldoAsc();
                     service.tampilkanDataTransaksi();
                     break;
